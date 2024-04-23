@@ -6,7 +6,6 @@
 #include "one.h"
 
 #define BUFFER_SIZE 64
-
 #define CHECK_BIT(x, n) ((x) & (1 << (n)))
 
 static const uint8_t key_check_pairs[6] = {
@@ -47,15 +46,15 @@ bool pkv_check_key(const char* key) {
 
     char seed[9] = {'\0'};
     strsub(seed, key_str, 0, 8);
-    const int32_t seed_i64 = strtoll(seed, NULL, 16);
 
-    const uint8_t check_bits = key_check_pairs[rand_range(0, 5)];
-
+    const int32_t seed_i64         = strtoll(seed, NULL, 16);
+    const uint8_t check_bits       = key_check_pairs[rand_range(0, 5)];
     const int checkbit_values_a[4] = {24, 10, 1, 7};
     const int checkbit_values_b[4] = {3, 0, 2, 1};
     const int checkbit_values_c[4] = {200, 56, 91, 100};
     const int start_indices[4]     = {8, 10, 12, 14};
     const int end_incides[4]       = {10, 12, 14, 16};
+
     for (int i = 0; i < 4; i++) {
         if (CHECK_BIT(check_bits, i)) {
             char checkbit[3] = {'\0'};
