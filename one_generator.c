@@ -87,7 +87,6 @@ int main(int argc, char* argv[]) {
         pkv_make_key(seed, key);
 
         printf("%s\n", key);
-        printf("%u\n", seed);
     }
     return 0;
 }

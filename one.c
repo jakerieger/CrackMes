@@ -25,7 +25,7 @@ bool pkv_check_checksum(const char* key, char* fmt_key_out) {
 
     char key_str[21] = {'\0'};
     strrmchr(key, key_str, '-');
-    strcpy_s(fmt_key_out, 21, key_str);
+    strcpy(fmt_key_out, key_str);
 
     char checksum[5] = {'\0'};
     strsub(checksum, key_str, 16, 20);
