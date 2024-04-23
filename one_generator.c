@@ -1,6 +1,11 @@
 // Author: Jake Rieger
 // Created: 4/23/2024.
 //
+
+// ************************************************************************************** //
+// *      THIS FILE IS USED TO GENERATE KEYS FOR TESTING, THE CRACKME IS ONLY ONE.C     * //
+// ************************************************************************************** //
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
