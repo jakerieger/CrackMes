@@ -2,8 +2,6 @@
 // Created: 4/23/2024.
 //
 
-#pragma once
-
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

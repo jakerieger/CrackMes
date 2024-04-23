@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#include "one.inl"
+#include "one.h"
 
 #define BUFFER_SIZE 64
 

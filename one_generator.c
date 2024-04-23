@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "one.inl"
+#include "one.h"
 
 int32_t djb2_hash(const int32_t* data, const size_t len) {
     int32_t hash             = 5381;
