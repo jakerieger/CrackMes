@@ -1,4 +1,0 @@
-"C:\Users\conta\AppData\Local\Programs\CLion 2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/conta/AppData/Local/Programs/CLion 2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\conta\Code\C\CrackMes -B C:\Users\conta\Code\C\CrackMes\build\Debug
--- Configuring done (0.0s)
--- Generating done (0.0s)
--- Build files have been written to: C:/Users/conta/Code/C/CrackMes/build/Debug
