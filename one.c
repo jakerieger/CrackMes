@@ -41,6 +41,7 @@ bool pkv_check_checksum(const char* key, char* fmt_key_out) {
 bool pkv_check_key(const char* key) {
     char key_str[21];
     if (!pkv_check_checksum(key, key_str)) {
+        fprintf(stderr, "Checksum invalid\n");
         return false;
     }
 
@@ -66,6 +67,7 @@ bool pkv_check_key(const char* key) {
             char bit[3]          = {'\0'};
             snprintf(bit, 3, "%x", bit_u8);
             if (strcmp(bit, checkbit) != 0) {
+                fprintf(stderr, "Check bit [%d] invalid\n", i + 1);
                 return false;
             }
         }
@@ -74,20 +76,22 @@ bool pkv_check_key(const char* key) {
     return true;
 }
 
-int main(void) {
-    puts("Enter your serial number: ");
-    char buffer[BUFFER_SIZE] = {'\0'};
-    fgets(buffer, BUFFER_SIZE, stdin);
+int main(int argc, char* argv[]) {
+    bool result = false;
 
-    const int len     = strlen(buffer);
-    buffer[len - 1]   = '\0';
-    const bool result = pkv_check_key(buffer);
-    const bool valid  = true;
+    if (argc == 2) {
+        result = pkv_check_key(argv[1]);
+    } else {
+        puts("Enter your serial number: ");
+        char buffer[BUFFER_SIZE] = {'\0'};
+        fgets(buffer, BUFFER_SIZE, stdin);
 
-    const char A = *(char*)&result;
-    const char B = *(char*)&valid;
+        const int len     = strlen(buffer);
+        buffer[len - 1]   = '\0';
+        result = pkv_check_key(buffer);
+    }
 
-    if ((A ^ B) == 0) {
+    if (result) {
         puts("Serial number is valid!");
     } else {
         puts("Serial number is invalid. Please try again.");
